@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height:100vh;
+    background-color: white
+
+}
+
+.main-container{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #6f4e37;
+    width: 550px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.quote{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.author{
+    font-weight: bold;
+}
+
+.quoteGenerator{
+    color: white;
+    padding: 3.5px 8px 3.5px 8px;
+    margin: 2rem 0rem 0.5rem 0rem;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius:3px;
+    border: 2px gray;
+    background: #b7a684;
+    cursor: pointer;
+}
+
+.tag{
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+}

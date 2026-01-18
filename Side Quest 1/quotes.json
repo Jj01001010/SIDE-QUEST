@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "quote": "Stay hungry, stay foolish.",
+        "author": "Steve Jobs"
+    },
+    {
+        "id": 2,
+        "quote": "Change is scary but change is Growth.",
+        "author": "Mi"
+    },
+    {
+        "id": 3,
+        "quote": "Mata sa langit paa sa lupa.",
+        "author": "Peenoy"
+    },
+    {
+        "id": 4,
+        "quote": "Life is a Journey, not a destination.",
+        "author": "Ralph Waldo Emerson"
+    },
+    {
+        "id": 5 ,
+        "quote": "Fear is a reactionm, Courage is a decision.",
+        "author": ""
+    },
+    {
+        "id": 6 ,
+        "quote": "Coffee is cheaper than a therapy.",
+        "author": ""
+    },
+    {
+        "id": 7 ,
+        "quote": "Dreams eventually come true.",
+        "author": "Bdd"
+    },
+     {
+        "id": 8 ,
+        "quote": "Be yourself and keep going.",
+        "author": ""
+    },
+     {
+        "id":9 ,
+        "quote": "Make them believed.",
+        "author": "LOL"
+    },
+     {
+        "id": 10 ,
+        "quote": "Show up even on your worst day.",
+        "author": "LOL"
+    }
+]
