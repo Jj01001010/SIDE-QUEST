@@ -58,20 +58,36 @@ function decreaseQty(id){
 
 function renderedCart(){
     const cartContainer = document.querySelector(".myCart")
+
+    let total = 0;
+
+    for(const cartItem of cart){
+        const product = products.find(p => p.id === cartItem.id)
+        if(!product) continue;
+        total += product.price * cartItem.qty
+    }
+
+
     cartContainer.innerHTML = cart.map((cartItem) => {
         const product = products.find(items => items.id === cartItem.id)
+        if(!product) return;
+
+        const subTotal = product.price * cartItem.qty;
+
         return `
             <div class="renderedCart">
                 <p>${product.name}</p>
                 <p>Qty: ${cartItem.qty}</p>
-                <p>Subtotal: ${product.price * cartItem.qty}</p>
+                <p>Subtotal: ${subTotal}</p>
                 <button data-action="inc" data-id="${cartItem.id}">+</button>
                 <button data-action="dec" data-id="${cartItem.id}">-</button>
                 <button data-action="clear" data-id="${cartItem.id}">Remove</button>
-                
             </div>
         `
     }).join("")
+
+    const totalEl = document.querySelector(".total");
+    totalEl.innerHTML = Number(total)
 }
 
 document.querySelector(".myCart").addEventListener("click", (e) => {
