@@ -14,3 +14,12 @@ body{
     grid-template-columns: 100px 100px 150px;
     margin-left: 50px
 }
+
+.total-container{
+    padding: 0 4rem 0 4rem;
+    font-size: 20px;
+}
+
+.rendered-img{
+    width: 150px;
+}

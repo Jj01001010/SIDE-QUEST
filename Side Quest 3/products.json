@@ -1,0 +1,20 @@
+[
+    { "id": 1, 
+    "name": "Basketball", 
+    "price": 799, 
+    "img":"./img/basketball.png" 
+},
+    { 
+        "id": 2, 
+        "name": "T-Shirt", 
+        "price": 449,
+        "img": "./img/t-shirt.jpg"
+    },
+        
+    { 
+        "id": 3, 
+        "name": "Loafer Shoe",
+        "price": 799,
+        "img": "./img/loafers.jpg"
+    }
+]
