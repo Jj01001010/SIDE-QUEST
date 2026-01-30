@@ -1,13 +1,29 @@
 let cart = []
 let products= []
+let isLoading = false
 
 async function loadProduct(){
-    const data = await fetch("./products.json")
-    if (!data.ok) throw new Error("Error kumag kaba")
-    
-    products = await data.json()
-    renderedProducts()
-    renderedCart()
+    try{
+        isLoading = true;
+        renderedProducts()
+        renderedCart()
+
+        const response = await fetch("products.json")
+        if (!response) {
+            throw new Error(`HTTP error: ${response.status}`)
+        }
+        products = await response.json()
+    }
+    catch(error){
+        console.log("Error occured", error)
+        const errorEl = document.querySelector('.error-handler')
+        if(errorEl) errorEl.innerHTML = "Error Occured, fetching failed"
+    }
+    finally{
+        isLoading = false;
+        renderedProducts()
+        renderedCart()
+    }
 }
 
 loadProduct()
@@ -29,9 +45,9 @@ function renderedProducts(){
     productContainer.innerHTML = products.map(product => {
         return `
             <div class="products">
-                <p>${product.name}</p>
-                <p>${product.price}</p>
                 <img class="rendered-img" src="${product.img}" alt="${product.name}" >
+                <p>${product.name}</p>
+                <p>₱ ${product.price}</p>
                 <button data-action="add" data-id="${product.id}">Add to cart</button>
             </div>
             `;
@@ -78,25 +94,18 @@ function decreaseQty(id){
 function renderedCart(){
     const cartContainer = document.querySelector(".myCart")
 
-    let totalValue = 0;
-
-    for(const cartItem of cart){
-        const product = products.find(p => p.id === cartItem.id)
-        if(!product) continue;
-        totalValue += product.price * cartItem.qty
-    }
+    let totalValue = totalSumProduct()
 
     cartContainer.innerHTML = cart.map((cartItem) => {
-        
         const product = products.find(items => items.id === cartItem.id)
         if(!product) return;
-
-        const subTotal = product.price * cartItem.qty;
+        
+        let subTotal = subTotalValue(cartItem.id)
         return `
             <div class="renderedCart">
                 <p>${product.name}</p>
                 <p>Qty: ${cartItem.qty}</p>
-                <p>Subtotal: ${subTotal}</p>
+                <p>Subtotal: ${Number(subTotal)}</p>
                 <button data-action="inc" data-id="${cartItem.id}">+</button>
                 <button data-action="dec" data-id="${cartItem.id}">-</button>
                 <button data-action="clear" data-id="${cartItem.id}">Remove</button>
@@ -105,7 +114,7 @@ function renderedCart(){
     }).join("")
 
     const totalEl = document.querySelector(".total");
-    totalEl.innerHTML = `Total: ${Number(totalValue)}`
+    totalEl.innerHTML = `Total: ${totalValue}`
 }
 
 document.querySelector(".myCart").addEventListener("click", (e) => {
@@ -125,4 +134,25 @@ function removeOneItem(id){
 function loadCartData(){
     const getData = JSON.parse(localStorage.getItem('myCart'))
     cart = getData || [];
+}
+
+function subTotalValue(id){
+    const cartItem = cart.find(item => item.id === id)
+    if(!cartItem) return;
+
+    const product = products.find(p => p.id === id)
+    if(!product) return;
+
+    return product.price * cartItem.qty
+    
+}
+
+function totalSumProduct(){
+    let total = 0;
+    for(const cartItem of cart){
+        const product = products.find(p => p.id === cartItem.id)
+        if(!product) continue;
+        total += product.price * cartItem.qty
+    }
+    return total
 }
