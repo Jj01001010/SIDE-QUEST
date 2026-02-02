@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #F7F7FB;
+    color: #2B2B2B;
+}
+
+.main-tag{
+    font-size: 40px;
+    padding: 2rem 0rem 0.5rem 0rem;
+    font-weight: bold;
+    color: rgb(127, 69, 127);
+}
+
+form{
+    margin: 1rem 0rem;
+
+}
+
+.submit-btn{
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+    background-color: rgb(66, 186, 66);
+    font-weight: 600
+}
+
+.remove-btn{
+    padding: 12px 18px;
+    align-items: stretch;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+    background: rgb(237, 86, 59);
+    font-weight: 600;
+}
+
+form > input, select{
+    padding:  12px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
+
+.transact-container{
+    display: grid;
+    grid-template-columns: 280px 200px 120px 50px;
+    padding-top: 0.3rem;
+    align-items: center;
+}
+
+
+.balance-container{
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 250px 200px 200px;
+    padding-top: 2rem;
+    font-size: 16px;
+    justify-content: space-between;
+}
+
+.expense-balance{
+    background-color: rgb(243, 75, 75);
+    padding: 12px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.income-balance{
+    background-color: rgb(232, 169, 51);
+    padding: 12px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.total{
+    background-color: rgb(102, 102, 230);
+    padding: 12px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+}
