@@ -14,7 +14,9 @@ function calculateBMI() {
     const weightValue = Number(weight.value)
 
     if (isNaN(heightValue) || isNaN(weightValue) || heightValue <= 0 || weightValue <= 0) {
-        resultEl.textContent = "Invalid values"
+        resultEl.textContent = "Invalid Values"
+        height.value = ""
+        weight.value = ""
         return;
     }
 
